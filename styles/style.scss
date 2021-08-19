@@ -1,0 +1,64 @@
+// These are variables
+$primaryBtn : goldenrod;
+
+// These are mixins; they act like functions
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: $direction;
+}
+
+header {
+    @include flexCenter(column);
+
+    background: aliceblue;
+    color: cornflowerblue;
+    button {
+        background: $primaryBtn;
+        // transition-duration: 400ms;
+        &:hover {
+            background: whitesmoke;
+            transition-duration: 400ms;
+        }
+    }
+}
+
+
+.page {
+    @include flexCenter(column);
+}
+
+.about {
+    @extend .page;
+
+    background-color: olive;
+    color: khaki;
+    
+    div{
+        padding: 20px 5px;
+        // background-color: burlywood;
+    }
+}
+
+.gallery {
+    @extend .page;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    align-items: center;
+    // justify-content: center;
+}
